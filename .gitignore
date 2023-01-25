@@ -1,3 +1,9 @@
+/log
+/.vs
+/.cache
+/.idea
+/.config
+
 # Prerequisites
 *.d
 
