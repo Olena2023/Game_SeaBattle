@@ -9,11 +9,12 @@ namespace Shoots
         {
             private Coord coord;
             private bool isHit; //результат пострілу
-
-            public Shoot(Coord coord, bool isHit)
+            DateTime createdAd;
+          public Shoot(Coord coord, bool isHit)
             {
                 this.coord = coord;
                 this.isHit = isHit;
+                createdAd = DateTime.Now;
             }
 
             public Coord Coord { get; }

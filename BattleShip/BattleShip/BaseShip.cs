@@ -10,9 +10,11 @@ namespace BaseShips
             private List<Coord> listCoord;  //масив об'єктів класу Сооrd
             protected int size;
             protected string shipType;
+            DateTime createdAd;
             public string Name { get; set; }
             public BaseShip(string name)
             {
+                createdAd = DateTime.Now;
                 this.name = name;
                 listCoord = new List<Coord >();
             }
