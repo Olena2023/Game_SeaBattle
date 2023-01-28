@@ -24,6 +24,7 @@ namespace BattleShip
             engine.generateAllShipFirstPlayer();
 
             engine.printInterface();
+            return;
 
 }
 }

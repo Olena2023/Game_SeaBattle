@@ -41,33 +41,33 @@ namespace Engines
             random = new Random(); 
         }
      
-        private Coord createCoord(Direction direction, Coord coord)
+        private Coord createCoord(Direction direction, Coord firstCoord)
         {
            switch (direction)
             {
                 case Direction.North:
                     {
-                        coord = new Coord(coord.X--, coord.Y);
+                        firstCoord = new Coord(firstCoord.X--, firstCoord.Y);
                     }
                     break;
                 case Direction.West:
                     {
-                        coord = new Coord(coord.X, coord.Y++); 
+                        firstCoord = new Coord(firstCoord.X, firstCoord.Y++); 
                     }
                     break;
                 case Direction.South:
                     {
-                        coord = new Coord(coord.X++, coord.Y); 
+                        firstCoord = new Coord(firstCoord.X++, firstCoord.Y); 
                     }
                     break;
                 case Direction.East:
                     {
-                        coord = new Coord(coord.X, coord.Y--); 
+                        firstCoord = new Coord(firstCoord.X, firstCoord.Y--); 
                     }
                     break;
 
             }
-            return  coord;
+            return firstCoord;
         }
         private bool checkShipPosition(Coord firstCoord, int shipType, Direction direction, List<BaseShip> list)
         {
@@ -105,24 +105,7 @@ namespace Engines
             } 
             return true; 
         }
-        private void addShipFirstPlayer(Coord firstCoord, int size, Direction direction, BaseShip baseShip)
-        {
-            for (int i = 0; i <  size; i++) 
-            {
-                baseShip.addCoords(firstCoord);
-                firstCoord = this.createCoord( direction, firstCoord);
-            }
-             this.shipListFirstPlayer.Add(baseShip);
-        }
-        private void addShipSecondPlayer(Coord firstCoord, int size, Direction direction, BaseShip baseShip)
-        {
-            for (int i = 0; i < size; i++)
-            {
-                baseShip.addCoords(firstCoord);
-                firstCoord=this.createCoord(direction, firstCoord);
-            }
-            this.shipListSecondPlayer.Add(baseShip);
-        }
+      
         private void generateShipFirstPlayer(string name, int size)
         {
             BaseShip baseShip = null; 
@@ -209,7 +192,27 @@ namespace Engines
                 }
             }
             while (!isEmpty); // якщо координати зайнята ідемо на нову ітерацію 
-        } 
+        }
+        private void addShipFirstPlayer(Coord firstCoord, int size, Direction direction, BaseShip baseShip)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                if (i >= 1)
+                { firstCoord = this.createCoord(direction, firstCoord); }
+                baseShip.addCoords(firstCoord);
+            }
+            this.shipListFirstPlayer.Add(baseShip);
+        }
+        private void addShipSecondPlayer(Coord firstCoord, int size, Direction direction, BaseShip baseShip)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                if (i >= 1)
+                { firstCoord = this.createCoord(direction, firstCoord); }
+                baseShip.addCoords(firstCoord);
+            }
+            this.shipListSecondPlayer.Add(baseShip);
+        }
         public void addShootFirstPlayer(Shoot shoot)  //додавання об'єктів в масив
         {
             this.shootListFirstPlayer.Add(shoot);
