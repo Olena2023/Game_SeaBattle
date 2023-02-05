@@ -6,3 +6,11 @@ C:\Users\Professional\source\repos\BattleShip\BattleShip\bin\Debug\BattleShip.ex
 C:\Users\Professional\source\repos\BattleShip\BattleShip\bin\Debug\BattleShip.pdb
 C:\Users\Professional\source\repos\BattleShip\BattleShip\obj\Debug\BattleShip.exe
 C:\Users\Professional\source\repos\BattleShip\BattleShip\obj\Debug\BattleShip.pdb
+E:\CodeWe\Proj\Game_SeaBattle\BattleShip\BattleShip\obj\Debug\BattleShip.pdb
+E:\CodeWe\Proj\Game_SeaBattle\BattleShip\BattleShip\bin\Debug\BattleShip.exe.config
+E:\CodeWe\Proj\Game_SeaBattle\BattleShip\BattleShip\bin\Debug\BattleShip.exe
+E:\CodeWe\Proj\Game_SeaBattle\BattleShip\BattleShip\bin\Debug\BattleShip.pdb
+E:\CodeWe\Proj\Game_SeaBattle\BattleShip\BattleShip\obj\Debug\BattleShip.csproj.AssemblyReference.cache
+E:\CodeWe\Proj\Game_SeaBattle\BattleShip\BattleShip\obj\Debug\BattleShip.csproj.SuggestedBindingRedirects.cache
+E:\CodeWe\Proj\Game_SeaBattle\BattleShip\BattleShip\obj\Debug\BattleShip.csproj.CoreCompileInputs.cache
+E:\CodeWe\Proj\Game_SeaBattle\BattleShip\BattleShip\obj\Debug\BattleShip.exe

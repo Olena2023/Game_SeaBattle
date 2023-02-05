@@ -8,18 +8,15 @@ namespace Coords
 {
     public class Coord
     {
-        private int x = 0;
-        private int y = 0;
-
-        public int X { get { return this.x; } set { this.x = value; } }
-        public int Y { get { return this.y; } set { this.y = value; } }
+        public int X { get; set; }
+        public int Y { get; set; }
 
         public Coord() { }
 
         public Coord(int x, int y) //створює об'єкт з двома координатами
         {
-            this.x = x;
-            this.y = y;
+            this.X = x;
+            this.Y = y;
         }
     }
 }

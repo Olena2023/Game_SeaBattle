@@ -1,15 +1,6 @@
-﻿using BaseShips;
-using Coords;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Engines;
 using Shoots;
-using Engines;
-using Prints;
-using Carriers;
-using Cruisers;
-using Destroyers;
-
+using System;
 
 namespace BattleShip
 
@@ -20,12 +11,31 @@ namespace BattleShip
         { 
             Engine engine = new Engine();
            
-            engine.generateAllShipSecondPlayer();
             engine.generateAllShipFirstPlayer();
+            engine.generateAllShipSecondPlayer();
 
-            engine.printInterface();
+            while (true)
+            {
+                Console.Clear();
+
+                Console.WriteLine("Shoot X: ");
+                int x = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Shoot Y: ");
+                int y = Convert.ToInt32(Console.ReadLine());
+
+
+                engine.shootFirstPlayer(x, y);
+
+
+                engine.printInterface();
+
+                Console.WriteLine("1 - to continue");
+                Console.ReadLine();
+            }
+
+           
             return;
 
-}
-}
+        }
+    }
 }

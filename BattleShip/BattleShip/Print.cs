@@ -2,7 +2,8 @@
 using Coords;
 using Shoots;
 using System;
-using System.Collections.Generic; 
+using System.Collections.Generic;
+using System.Security.AccessControl;
 
 namespace Prints
 {
@@ -10,10 +11,12 @@ namespace Prints
     {
         public void printLeftField(List<BaseShip> shipListPlayer)
         {
+            
             for (int i = 0; i < 11; i++)
             {
                 for (int j = 0; j < 11; j++)
                 {
+                    //start field
                     if (j == 0 && i == 0)
                     {
                         Console.Write("  ");
@@ -26,19 +29,25 @@ namespace Prints
                     else if (i != 0 && j == 0)
                     {
                         Console.Write((i - 1) + "|");
-                    }
+                    }//end field
                     else
                     {
+                        bool flag = true;
                         foreach (BaseShip ship in shipListPlayer)
                         {
                             foreach (Coord coord in ship.getCoords())
                             {
                                 if (coord.X == i - 1 && coord.Y == j - 1)
                                 {
-                                    Console.Write("S" + "|"); // малювання корабля 
-                                } 
+                                    Console.Write(ship.getId() + "|"); // малювання корабля 
+                                    flag = false;
+                                    break;
+                                }
                             }
-                        }//Console.Write(" |"); 
+                            
+                        }
+                        if(flag)
+                            Console.Write("  "); 
                     }  
                 } 
                 Console.WriteLine();
@@ -65,17 +74,24 @@ namespace Prints
                         Console.Write((i - 1) + "|");
                     }
 
-                    foreach (Shoot shoot in shootListPlayer)
+                    if (j != 0 && i != 0)
                     {
-                        if ((shoot.Coord.X == i - 1 && shoot.Coord.Y == j - 1) && shoot.IsHit == true)
+                        string symbol = "  ";
+                        foreach (Shoot shoot in shootListPlayer)
                         {
-                            Console.Write("*"); //влучання
+                            if ((shoot.Coord.X == i - 1 && shoot.Coord.Y == j - 1))
+                            {
+                                if (shoot.IsHit == true)
+                                    symbol = "*|"; //влучання
+                                else
+                                    symbol = "o|";
+                            }
+                     
                         }
-                        else
-                        {
-                            Console.Write("o"); //промах
-                        }
+
+                        Console.Write(symbol);
                     }
+                    
 
                 }
 
@@ -84,4 +100,4 @@ namespace Prints
 
         }
     }
-    }
+}

@@ -7,18 +7,17 @@ namespace Shoots
    
         class Shoot // клас Постріл
         {
-            private Coord coord;
-            private bool isHit; //результат пострілу
+            public Coord Coord { get; set; }
+
+            public bool IsHit { get; }
             DateTime createdAd;
-          public Shoot(Coord coord, bool isHit)
+            public Shoot(Coord coord, bool isHit)
             {
-                this.coord = coord;
-                this.isHit = isHit;
+                this.Coord = coord;
+                this.IsHit = isHit;
                 createdAd = DateTime.Now;
             }
 
-            public Coord Coord { get; }
 
-            public bool IsHit { get; }
         }
     }
